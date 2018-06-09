@@ -19,6 +19,8 @@ namespace Task1.ConsoleUI
                 catalog = (Catalog)serializer.Deserialize(fileStream);
             }
 
+            catalog.Books[0].PublishDate = catalog.Books[0].PublishDate.AddYears(30);
+
             var namespaces = new XmlSerializerNamespaces();
             namespaces.Add(string.Empty, Catalog.XmlNamespace);
             using (var xmlWriter = XmlWriter.Create("books1.xml", new XmlWriterSettings
